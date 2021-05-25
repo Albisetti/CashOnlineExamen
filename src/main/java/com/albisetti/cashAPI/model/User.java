@@ -1,7 +1,4 @@
 package com.albisetti.cashAPI.model;
-
-import com.albisetti.cashAPI.model.Loan;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import java.util.*;
 

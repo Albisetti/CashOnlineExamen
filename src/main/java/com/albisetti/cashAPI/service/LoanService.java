@@ -5,7 +5,6 @@ import com.albisetti.cashAPI.repository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class LoanService {
     @Autowired
