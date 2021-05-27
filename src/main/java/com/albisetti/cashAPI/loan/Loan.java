@@ -1,5 +1,6 @@
-package com.albisetti.cashAPI.model;
+package com.albisetti.cashAPI.loan;
 
+import com.albisetti.cashAPI.user.User;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

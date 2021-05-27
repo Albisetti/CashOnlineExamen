@@ -1,6 +1,5 @@
-package com.albisetti.cashAPI.repository;
+package com.albisetti.cashAPI.loan;
 
-import com.albisetti.cashAPI.model.Loan;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

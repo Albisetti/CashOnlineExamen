@@ -1,6 +1,5 @@
-package com.albisetti.cashAPI.repository;
+package com.albisetti.cashAPI.user;
 
-import com.albisetti.cashAPI.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer>{

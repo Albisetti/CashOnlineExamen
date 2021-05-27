@@ -1,8 +1,5 @@
-package com.albisetti.cashAPI.controller;
+package com.albisetti.cashAPI.user;
 
-import com.albisetti.cashAPI.model.User;
-import com.albisetti.cashAPI.repository.UserRepository;
-import com.albisetti.cashAPI.service.UserService;
 import com.albisetti.cashAPI.exception.ResourceNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;

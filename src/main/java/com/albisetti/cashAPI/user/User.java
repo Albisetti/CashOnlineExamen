@@ -1,5 +1,8 @@
-package com.albisetti.cashAPI.model;
+package com.albisetti.cashAPI.user;
 import javax.persistence.*;
+
+import com.albisetti.cashAPI.loan.Loan;
+
 import java.util.*;
 
 @Entity

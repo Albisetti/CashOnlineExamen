@@ -1,11 +1,8 @@
-package com.albisetti.cashAPI.controller;
+package com.albisetti.cashAPI.loan;
 
 import com.albisetti.cashAPI.exception.ResourceNotFoundException;
-import com.albisetti.cashAPI.model.Loan;
-import com.albisetti.cashAPI.repository.UserRepository;
-import com.albisetti.cashAPI.repository.LoanRepository;
-import com.albisetti.cashAPI.service.LoanService;
-import com.albisetti.cashAPI.service.UserService;
+import com.albisetti.cashAPI.user.UserRepository;
+import com.albisetti.cashAPI.user.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,14 +29,12 @@ public class LoanController {
     UserRepository userRepository;
 
     @GetMapping("/loans")
-    public Page<Loan> getAllLoans(Pageable pageable) {
-        return loanRepository.findAll(pageable);
-    }
-
-    @GetMapping("/loans&user_id={userId}")
-    public Page<Loan> getAllLoansByUserId(@PathVariable (value = "userId") Integer userId,
+    public Page<Loan> getAllLoansByUserId(@RequestParam (value = "user_id", required = false) Integer user_id,
                                                 Pageable pageable) {
-        return loanRepository.findByUserId(userId, pageable);
+        if(user_id != null){
+            return loanRepository.findByUserId(user_id, pageable);
+        }
+        return loanRepository.findAll(pageable);
     }
 
     @GetMapping("/loans/{id}")
@@ -51,13 +46,13 @@ public class LoanController {
             return new ResponseEntity<Loan>(HttpStatus.NOT_FOUND);
         }
     }
-    @PostMapping("/loans&user_id={userId}")
-    public ResponseEntity<Loan> createLoan(@PathVariable (value = "userId") int userId, @RequestBody Loan loan) {
-        return userRepository.findById(userId).map(user -> {
+    @PostMapping("/loans")
+    public ResponseEntity<Loan> createLoan(@RequestParam (value = "user_id", required = true) int user_id, @RequestBody Loan loan) {
+        return userRepository.findById(user_id).map(user -> {
             loan.setUser(user);
             loanRepository.save(loan);
             return new ResponseEntity<Loan>(loan, HttpStatus.OK);
-        }).orElseThrow(() -> new ResourceNotFoundException("UserId " + userId + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("UserId " + user_id + " not found"));
     }
     @PutMapping("/loans/{id}")
     public ResponseEntity<Loan> update(@RequestBody Loan loanRequest, @PathVariable Integer id) {

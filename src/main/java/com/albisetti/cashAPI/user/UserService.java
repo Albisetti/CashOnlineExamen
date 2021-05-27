@@ -1,7 +1,5 @@
-package com.albisetti.cashAPI.service;
+package com.albisetti.cashAPI.user;
 
-import com.albisetti.cashAPI.model.User;
-import com.albisetti.cashAPI.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

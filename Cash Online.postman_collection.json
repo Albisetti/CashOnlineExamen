@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "af0f20ac-33b1-42cb-996f-591e6d7be3de",
+		"_postman_id": "88733307-a9ed-418b-9815-585c427cbe4a",
 		"name": "Cash Online",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -158,7 +158,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/loans?page=0&size=50",
+					"raw": "http://localhost:8080/loans?page={{pageNo}}&size={{size}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -170,11 +170,11 @@
 					"query": [
 						{
 							"key": "page",
-							"value": "0"
+							"value": "{{pageNo}}"
 						},
 						{
 							"key": "size",
-							"value": "50"
+							"value": "{{size}}"
 						}
 					]
 				}
@@ -207,14 +207,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/loans&user_id={{id}}?page={{pageNo}}&size={{size}}",
+					"raw": "http://localhost:8080/loans?page={{pageNo}}&size={{size}}&user_id={{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"loans&user_id={{id}}"
+						"loans"
 					],
 					"query": [
 						{
@@ -224,6 +224,10 @@
 						{
 							"key": "size",
 							"value": "{{size}}"
+						},
+						{
+							"key": "user_id",
+							"value": "{{id}}"
 						}
 					]
 				}
@@ -237,7 +241,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"total\":2000\n}",
+					"raw": "{\n    \"total\":100000000\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -245,14 +249,20 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/loans&user_id={{id}}",
+					"raw": "http://localhost:8080/loans?user_id={{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"loans&user_id={{id}}"
+						"loans"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{{id}}"
+						}
 					]
 				}
 			},
@@ -293,7 +303,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/loans/11",
+					"raw": "http://localhost:8080/loans/{{id}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -301,7 +311,7 @@
 					"port": "8080",
 					"path": [
 						"loans",
-						"11"
+						"{{id}}"
 					]
 				}
 			},

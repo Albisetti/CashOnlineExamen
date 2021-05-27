@@ -1,7 +1,5 @@
-package com.albisetti.cashAPI.service;
+package com.albisetti.cashAPI.loan;
 
-import com.albisetti.cashAPI.model.Loan;
-import com.albisetti.cashAPI.repository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
